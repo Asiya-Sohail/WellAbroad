@@ -1,0 +1,31 @@
+WellAbroad backend - what I built and why
+
+I created a FastAPI server for WellAbroad's two main features.
+
+1. Consultation preparation: creates temporary sessions, asks symptom questions, allows skips, 
+records missing answers as not provided, and always makes room for medication, allergy, and 
+condition questions. This helps a traveler prepare a useful note for a clinician without the 
+app diagnosing them.
+
+2. Document explanation: accepts PDFs and common image files, checks type and size, sends them 
+to the configured Evolus extractor, and explains the extracted text in the user's language. 
+It keeps extracted information for follow-up questions but does not save the original upload.
+
+3. Evolus connection: keeps API credentials on the backend and provides the agent chat, file 
+extraction, and translation calls. Without configuration, the server can still run and provide 
+a safe basic consultation flow.
+
+4. Safety and privacy: includes urgent-symptom warnings, medical disclaimers, bounded uploads, 
+session expiry, request limiting, and configurable frontend CORS origins. Skipped questions are 
+never treated as a "no".
+
+5. Setup files: requirements.txt lists Python packages, .env.example shows the settings to fill in, 
+and README.md gives local run instructions.
+
+Why these pieces are necessary: the frontend needs one private server to manage sessions, protect 
+Evolus keys, validate files and answers, coordinate AI services, and apply consistent safety 
+rules before returning results.
+
+Current limitation: sessions and extracted document data use temporary in-process memory. 
+They disappear after expiry or a server restart; production deployment should use a shared 
+TTL store and add user authentication.
