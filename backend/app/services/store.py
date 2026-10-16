@@ -17,6 +17,7 @@ class Session:
     current_question: dict[str, Any] | None = None
     red_flag: bool = False
     documents: dict[str, dict[str, Any]] = field(default_factory=dict)
+    conversation_history: list[dict[str, str]] = field(default_factory=list)
 
 
 class MemoryStore:
@@ -43,3 +44,9 @@ class MemoryStore:
         now = time.time()
         for sid in [key for key, value in self.sessions.items() if value.expires_at <= now]:
             self.sessions.pop(sid, None)
+
+    def purge_documents(self, now: float | None = None) -> None:
+        now = now or time.time()
+        for session in self.sessions.values():
+            for doc_id in [key for key, value in session.documents.items() if value.get("expires_at", session.expires_at) <= now]:
+                session.documents.pop(doc_id, None)

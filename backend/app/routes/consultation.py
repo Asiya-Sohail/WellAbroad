@@ -4,6 +4,8 @@ from fastapi import APIRouter, HTTPException, Request
 from app.routes.sessions import get_session
 from app.schemas import AnswerResult, ConsultationAnswer, ConsultationSummary, Question
 from app.services.safety import DISCLAIMER, URGENT_MESSAGE, has_emergency_sign
+from app.services.orchestration import interviewer_prompt, summarize_consultation
+from app.services.translation import translate_summary
 
 router = APIRouter(prefix="/consult", tags=["consultation"])
 MANDATORY = [
@@ -79,13 +81,10 @@ async def answer(sid: str, body: ConsultationAnswer, request: Request):
     # Give the adaptive interviewer up to one retry for malformed or unusable JSON.
     model = request.app.state.settings.evolus_interviewer_model
     if model and request.app.state.settings.evolus_api_key:
-        prompt = ("Return only JSON with keys done, red_flag, target, question, quick_options. Ask one short symptom question, "
-                  "never diagnose, and never ask a skipped or repeated target. Use the user's language. If not enough relevant questions remain, set done true.\n"
-                  + json.dumps({"user_language": state.ui_lang, "transcript": state.answers, "skipped": state.skipped,
-                                "questions_asked": state.question_count, "max_questions": request.app.state.settings.max_questions}, ensure_ascii=False))
+        prompt = interviewer_prompt({"user_language": state.ui_lang, "transcript": state.answers, "skipped": state.skipped, "questions_asked": state.question_count}, state.ui_lang, request.app.state.settings.max_questions)
         for attempt in range(2):
             try:
-                raw, _ = await request.app.state.evolus.chat(model, prompt + ("\nReturn valid JSON only." if attempt else ""), json_only=True)
+                raw, _ = await request.app.state.evolus.chat(model, prompt + ("\nReturn valid JSON only." if attempt else ""), json_only=True, stream=True)
                 ai_result = _parse_ai(raw)
                 if ai_result and (ai_result.get("done") is True or (ai_result.get("target") and ai_result.get("question"))):
                     break
@@ -113,18 +112,10 @@ async def summary(sid: str, request: Request):
     state = get_session(request, sid)
     if not state.answers and not state.skipped:
         raise HTTPException(status_code=409, detail="Complete or skip consultation questions before requesting a summary.")
-    model = request.app.state.settings.evolus_summarizer_model
-    english = "Consultation notes\n" + "\n".join(f"{x['target'].replace('_', ' ').title()}: {x['answer']}" for x in state.answers)
-    if state.skipped:
-        english += "\nNot provided: " + ", ".join(state.skipped)
-    if model and request.app.state.settings.evolus_api_key:
-        prompt = "Create a concise factual English doctor summary from these notes. Include complaint, timing, severity, symptoms, medications, allergies, conditions, and explicitly mark missing information. Do not diagnose or give treatment advice.\n" + json.dumps({"answers": state.answers, "skipped": state.skipped}, ensure_ascii=False)
-        try:
-            generated, _ = await request.app.state.evolus.chat(model, prompt)
-            if generated.strip():
-                english = generated.strip()
-        except HTTPException:
-            pass
-    local = await request.app.state.evolus.translate(english, state.local_lang) if state.local_lang.casefold() not in {"english", "en"} and request.app.state.settings.evolus_api_key else english
-    user = await request.app.state.evolus.translate(english, state.ui_lang) if state.ui_lang.casefold() not in {"english", "en"} and request.app.state.settings.evolus_api_key else english
+    try:
+        english = await summarize_consultation(request.app.state.evolus, request.app.state.settings, state.answers, state.skipped)
+        local = await translate_summary(request.app.state.evolus, request.app.state.settings, english, state.local_lang)
+        user = await translate_summary(request.app.state.evolus, request.app.state.settings, english, state.ui_lang)
+    except RuntimeError as exc:
+        raise HTTPException(status_code=503, detail=str(exc)) from exc
     return ConsultationSummary(english=english, local_language=local, user_language=user, skipped=state.skipped, red_flag=state.red_flag, disclaimer=DISCLAIMER)

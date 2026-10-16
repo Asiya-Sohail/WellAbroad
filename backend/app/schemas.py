@@ -53,3 +53,14 @@ class DocumentResult(BaseModel):
     extracted: dict[str, Any]
     unreadable_parts: list[str] = Field(default_factory=list)
     disclaimer: str
+
+
+class DocumentChatRequest(BaseModel):
+    message: str = Field(min_length=1, max_length=2000)
+    session_id: str = Field(min_length=1)
+
+
+class DocumentChatResult(BaseModel):
+    answer: str
+    urgent: bool = False
+    disclaimer: str

@@ -22,6 +22,12 @@ def create_app() -> FastAPI:
 
     @app.middleware("http")
     async def rate_limit(request: Request, call_next):
+        app.state.store.purge()
+        app.state.store.purge_documents()
+        import time as _time
+        for key, item in list(app.state.document_cache.items()):
+            if item.get("expires_at", 0) <= _time.time():
+                app.state.document_cache.pop(key, None)
         # FastAPI's Swagger UI is GET /docs; POST /docs is the medical upload API
         # and must remain rate limited like the other application endpoints.
         if request.url.path in {"/health", "/openapi.json", "/redoc"} or (request.url.path == "/docs" and request.method == "GET"):
