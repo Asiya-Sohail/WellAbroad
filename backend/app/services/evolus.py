@@ -89,7 +89,7 @@ class EvolusClient:
                 detail=f"Evolus extractor returned upstream HTTP {status}."
             raise HTTPException(502, detail) from exc
         except httpx.RequestError as exc:
-            raise HTTPException(502, "Evolus document extraction could not reach the upstream service.") from exc
+            raise HTTPException(502, f"Evolus document extraction could not reach the upstream service: {type(exc).__name__} ({exc})") from exc
         except json.JSONDecodeError as exc:
             raise HTTPException(502, "Evolus document extraction returned invalid JSON.") from exc
         return self._unwrap_extractor_payload(payload)
