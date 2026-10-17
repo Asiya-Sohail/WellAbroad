@@ -46,6 +46,15 @@ def create_app() -> FastAPI:
     app.include_router(consultation.router)
     app.include_router(documents.router)
 
+    @app.get("/", tags=["root"])
+    def root():
+        return {
+            "status": "ok",
+            "message": "WellAbroad API is running",
+            "docs": "/docs",
+            "health": "/health"
+        }
+
     @app.get("/health", tags=["health"])
     def health():
         return {"status": "ok", "evolus_configured": bool(settings.evolus_api_key)}
