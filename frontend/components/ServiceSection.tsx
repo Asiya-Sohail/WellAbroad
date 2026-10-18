@@ -43,7 +43,7 @@ export function ServiceSection({
     <section className="py-6 md:mb-30">
       <div className="mx-auto max-w-[92%]">
         {/* banner */}
-        <div className="relative flex items-center justify-center overflow-hidden rounded-t-4xl w-full text-center h-72 md:h-96">
+        <div className="relative flex items-center justify-center overflow-hidden rounded-t-4xl w-full px-4 text-center h-72 md:h-96">
           <Image
             src={bannerImage}
             alt=""
