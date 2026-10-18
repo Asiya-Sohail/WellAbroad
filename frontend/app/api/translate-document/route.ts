@@ -4,7 +4,7 @@
 // .env.local:  TRANSLATE_API_URL=https://your-backend/translate   TRANSLATE_API_KEY=optional
 import { NextResponse } from "next/server";
 
-export const maxDuration = 60;
+export const maxDuration = 300;
 
 const MAX_BYTES = 10 * 1024 * 1024;
 const ALLOWED = ["image/jpeg", "image/png", "image/webp", "application/pdf"];
@@ -34,7 +34,7 @@ export async function POST(req: Request) {
       headers: process.env.TRANSLATE_API_KEY
         ? { Authorization: `Bearer ${process.env.TRANSLATE_API_KEY}` }
         : undefined,
-      signal: AbortSignal.timeout(55_000),
+      signal: AbortSignal.timeout(295_000),
     });
 
     if (!upstream.ok) return fail("upstream_error", 502);

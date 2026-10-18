@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { backend } from "@/lib/backend";
 
-export const maxDuration = 60;
+export const maxDuration = 300;
 
 type Ctx = { params: Promise<{ docId: string; step: string }> };
 const bad = (status = 400) => NextResponse.json({ code: "invalid" }, { status });

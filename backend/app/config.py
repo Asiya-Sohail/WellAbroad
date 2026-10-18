@@ -18,7 +18,8 @@ class Settings(BaseSettings):
     max_questions: int = Field(default=10, ge=4, le=50)
     evolus_agent_chat_url: str = "https://api.evolus.ai/v1/chat/completions"
     evolus_rest_url: str = "https://api.evolus.ai/api/v1"
-    evolus_timeout_seconds: float = 45.0
+    # Keep upstream calls below Vercel's 300-second function ceiling.
+    evolus_timeout_seconds: float = 240.0
     offline_fallback_enabled: bool = True
     document_retention_seconds: int = 3600
     model_config = SettingsConfigDict(env_file=Path(__file__).resolve().parents[1] / ".env", extra="ignore")

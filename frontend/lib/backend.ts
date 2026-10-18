@@ -12,7 +12,7 @@ export async function backend(path: string, init: RequestInit = {}) {
         ...(init.headers as Record<string, string> | undefined),
       },
       cache: "no-store",
-      signal: AbortSignal.timeout(55_000),
+      signal: AbortSignal.timeout(295_000),
     });
 
     if (!res.ok) {

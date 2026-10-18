@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { backend } from "@/lib/backend";
 
-export const maxDuration = 60;
+export const maxDuration = 300;
 
 export async function POST(req: Request) {
   let body: Record<string, unknown>;

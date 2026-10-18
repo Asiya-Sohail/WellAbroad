@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { backend } from "@/lib/backend";
 
-export const maxDuration = 60;
+export const maxDuration = 300;
 
 const STEPS = { start: "POST", answer: "POST", summary: "GET" } as const;
 type Ctx = { params: Promise<{ sid: string; step: string }> };
