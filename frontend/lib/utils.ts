@@ -7,3 +7,5 @@ export const idiqlat = Idiqlat({
   display: 'swap',
   fallback: ["inter"]
 });
+
+export const TOAST_ID = "wellabroad-error";

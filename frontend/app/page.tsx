@@ -1,13 +1,15 @@
-import { FinalCta } from "@/components/landing-page-section/FinalCTA-Section";
-import { Hero } from "@/components/landing-page-section/HeroSection";
-import { HowItWorks } from "@/components/landing-page-section/HowItWorksSection";
-import { Privacy } from "@/components/landing-page-section/PrivacySection";
-import { Problem } from "@/components/landing-page-section/ProblemSection";
-import { UseCases } from "@/components/landing-page-section/UseCasesSection";
+import { Footer } from "@/components/Footer";
+import { FinalCta } from "@/components/landing-page/FinalCTA-Section";
+import { Hero } from "@/components/landing-page/HeroSection";
+import { HowItWorks } from "@/components/landing-page/HowItWorksSection";
+import { Privacy } from "@/components/landing-page/PrivacySection";
+import { Problem } from "@/components/landing-page/ProblemSection";
+import { UseCases } from "@/components/landing-page/UseCasesSection";
 
 export default function HomePage() {
   return (
-      <main>
+    <>
+      <main >
         <Hero />
         <Problem />
         <HowItWorks />
@@ -15,5 +17,7 @@ export default function HomePage() {
         <Privacy />
         <FinalCta />
       </main>
+      <Footer />
+    </>
   );
 }

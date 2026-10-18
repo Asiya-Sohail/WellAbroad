@@ -1,0 +1,364 @@
+{
+  "meta": {
+    "title": "WellAbroad | La santé, où que la vie vous mène",
+    "description": "WellAbroad vous aide à expliquer vos symptômes, à comprendre vos documents médicaux et à vous repérer dans le système de santé local, dans une langue que vous comprenez. Aucun compte requis.",
+    "symptomsTitle": "Décrivez vos symptômes",
+    "symptomsDescription": "Un questionnaire guidé de 2 minutes qui transforme ce que vous ressentez en mots clairs dans la langue locale, avec les numéros d'urgence du Pakistan, des États-Unis, du Royaume-Uni, d'Allemagne et de France.",
+    "documentsTitle": "Comprenez votre document",
+    "documentsDescription": "Importez une ordonnance étrangère, un rapport d'analyses ou une note médicale pour obtenir une traduction et une explication claire en langage simple."
+  },
+  "common": {
+    "copyFailed": "Impossible de copier !",
+    "disclaimer": "WellAbroad est une aide à la communication médicale, et non un service de diagnostic. En cas d'urgence, appelez votre numéro d'urgence local."
+  },
+  "nav": {
+    "howItWorks": "Comment ça marche",
+    "useCases": "Cas d'usage",
+    "privacy": "Confidentialité et sécurité",
+    "language": "Langue",
+    "openMenu": "Ouvrir le menu",
+    "menu": "Menu"
+  },
+  "cta": {
+    "describe": "Décrire mes symptômes",
+    "understand": "Comprendre mon document"
+  },
+  "hero": {
+    "title": "La santé, où que la vie vous mène",
+    "subtitle": "WellAbroad vous aide à expliquer vos symptômes, à comprendre vos documents médicaux et à vous repérer dans le système de santé local, dans une langue que vous comprenez.",
+    "note": "Conçu dans le respect de votre vie privée. Aucun compte requis."
+  },
+  "problem": {
+    "title": "Se soigner à l'étranger ne devrait pas être source d'angoisse.",
+    "subtitle": "Quand on ne parle pas la langue locale, même les démarches de santé les plus simples peuvent devenir stressantes. Expliquer ce que l'on ressent, comprendre des instructions médicales ou savoir où aller ne devrait pas compliquer l'accès aux soins.",
+    "items": {
+      "words": {
+        "quote": "Je ne sais pas comment expliquer ce que je ressens.",
+        "title": "Trouver les bons mots",
+        "body": "Décrire ses symptômes dans une autre langue est difficile, surtout quand on est déjà souffrant et anxieux. Les applications de traduction automatique perdent souvent les nuances."
+      },
+      "info": {
+        "quote": "Que dit cette ordonnance ?",
+        "title": "Comprendre les informations médicales",
+        "body": "Ordonnances, comptes rendus de consultation et consignes de sortie peuvent être difficiles à lire dans une écriture inconnue, laissant les patients dans le doute sur les posologies et le suivi."
+      },
+      "where": {
+        "quote": "Dois-je aller à la pharmacie ou chez le médecin ?",
+        "title": "Savoir où aller",
+        "body": "Chaque pays a son propre système de santé, ses règles d'orientation et ses niveaux de tri. Savoir par où commencer n'a rien d'évident pour un étranger."
+      }
+    }
+  },
+  "how": {
+    "title": "Rendre la santé plus facile à comprendre,\nquel que soit l'endroit où vous êtes.",
+    "subtitle": "WellAbroad vous aide à expliquer vos symptômes dans une autre langue, à comprendre vos documents médicaux,\net à mieux vous préparer pour vous soigner à l'étranger.",
+    "steps": {
+      "questions": {
+        "title": "Les bonnes questions vous aident à trouver les bons mots.",
+        "body": "Des questions guidées aident à décrire vos symptômes, à organiser les informations utiles et à préparer un résumé bilingue structuré à montrer à un médecin ou à un pharmacien. Vous pouvez relire vos réponses avant de générer ou de partager le résumé."
+      },
+      "documents": {
+        "title": "Donnez du sens à vos informations médicales.",
+        "body": "Importez ou scannez une ordonnance, un rapport médical ou une note de consultation pour obtenir une traduction et une explication en langage clair des principes actifs, des posologies et des précautions. WellAbroad vous aide à comprendre vos documents sans poser de diagnostic ni remplacer l'avis d'un professionnel de santé."
+      },
+      "summary": {
+        "title": "Emportez votre résumé avec vous.",
+        "body": "Exportez ou imprimez une fiche d'admission clinique bilingue, claire et prête à remettre à l'accueil ou au médecin, pour que vos antécédents et vos préoccupations actuelles soient communiqués avec exactitude."
+      }
+    }
+  },
+  "useCases": {
+    "title": "Des situations différentes.\nUne barrière linguistique en moins.",
+    "subtitle": "Que vous voyagiez une semaine, que vous sortiez d'une consultation ou que vous vous installiez durablement, WellAbroad s'adapte à votre contexte médical.",
+    "items": {
+      "travelling": {
+        "title": "Quand vous voyagez",
+        "body": "Vous vous sentez mal à l'étranger et devez expliquer vos symptômes dans une pharmacie ou une clinique locale, rapidement et clairement, sans malentendus."
+      },
+      "consultation": {
+        "title": "Après une consultation",
+        "body": "Vous recevez un document dans une langue que vous ne maîtrisez pas et avez besoin d'aide pour comprendre les posologies, les principes actifs et les consignes de soins."
+      },
+      "settling": {
+        "title": "Vous installer dans un nouveau pays",
+        "body": "Vous devez comprendre comment fonctionne le système de santé local, trouver un médecin de premier recours fiable et enregistrer correctement vos antécédents médicaux."
+      }
+    }
+  },
+  "privacy": {
+    "title": "Des données de santé qui restent entre vos mains.",
+    "body": "Nous pensons que la confidentialité médicale ne devrait exiger ni compétences techniques ni confiance aveugle. WellAbroad fonctionne sans compte, sans conservation dans le cloud et sans prétention au diagnostic. Vos symptômes et vos ordonnances sont déchiffrés localement dans votre navigateur pour vous aider à vous faire comprendre dans une clinique étrangère, puis disparaissent complètement dès la fin de votre conversation.",
+    "tagline": "Conçu pour les voyageurs et les expatriés · Aucune donnée conservée · Éphémère par défaut"
+  },
+  "finalCta": {
+    "title": "Ne vous sentez plus perdu\nquand vous avez besoin de soins à l'étranger.",
+    "subtitle": "WellAbroad vous aide à expliquer vos symptômes, à comprendre vos documents médicaux et à vous repérer dans le système de santé local, dans une langue que vous comprenez."
+  },
+  "footer": {
+    "tagline": "Accompagner les voyageurs, les résidents internationaux et les étudiants pour qu'ils s'orientent dans les systèmes de santé étrangers en toute sécurité, avec clarté et dans le respect de leur dignité.",
+    "headings": {
+      "product": "Produit",
+      "governance": "Gouvernance",
+      "team": "Équipe"
+    },
+    "links": {
+      "symptomExplainer": "Explicateur de symptômes",
+      "documentsLens": "Lecteur de documents médicaux",
+      "pdfExport": "Export PDF",
+      "localGuidance": "Repères de santé locaux",
+      "privacyNotice": "Politique de confidentialité",
+      "terms": "Conditions d'utilisation",
+      "clinicalDisclaimer": "Avertissement médical",
+      "security": "Aperçu de la sécurité"
+    },
+    "copyright": "© 2026 WellAbroad Inc. N'est ni un outil de diagnostic médical ni un substitut à l'avis direct d'un professionnel de santé."
+  },
+  "notFound": {
+    "title": "Nous n'avons pas trouvé cette page.",
+    "body": "Le lien est peut-être rompu ou la page a été déplacée. Vous pouvez revenir à l'accueil ou commencer par l'une des options ci-dessous.",
+    "home": "Retour à l'accueil"
+  },
+  "symptomsLanding": {
+    "bannerTitle": "Faites-vous comprendre partout.",
+    "bannerSubtitle": "Un questionnaire clinique guidé de 2 minutes qui traduit ce que vous ressentez en terminologie médicale locale vérifiée, pour les médecins, les services d'accueil et de tri et les pharmacies de quartier.",
+    "title": "Décrivez vos symptômes dans votre langue.",
+    "description": "Un questionnaire guidé de 2 minutes qui traduit ce que vous ressentez en termes médicaux locaux, pour les médecins et les pharmacies à l'étranger.",
+    "feature1": "Des mots simples convertis en terminologie clinique locale",
+    "feature2": "À présenter sur l'écran de votre téléphone ou à exporter sous forme de résumé",
+    "cta": "Commencer l'évaluation des symptômes",
+    "ctaNote": "~2 minutes · Aucun compte requis"
+  },
+  "documentsLanding": {
+    "bannerTitle": "Comprenez l'essentiel.",
+    "bannerSubtitle": "Importez une ordonnance étrangère, un résultat d'analyse ou un document médical pour obtenir une traduction immédiate et une explication claire en langage simple.",
+    "title": "Comprenez les ordonnances et les notes médicales étrangères.",
+    "description": "Importez une ordonnance, un rapport d'analyses ou une notice étrangers pour obtenir aussitôt une explication en langage simple.",
+    "feature1": "Posologie en langage simple, prise par rapport aux repas et alertes allergies",
+    "feature2": "100 % privé et côté client (aucun compte nécessaire)",
+    "cta": "Commencer la traduction du document",
+    "ctaNote": "~2 minutes · Aucun compte requis"
+  },
+  "symptoms": {
+    "banner": {
+      "title": "Faites-vous comprendre partout.",
+      "subtitle": "Un questionnaire guidé de 2 minutes qui transforme ce que vous ressentez en mots clairs dans la langue locale, pour les médecins et les pharmacies à l'étranger."
+    },
+    "where": {
+      "title": "Où êtes-vous ?",
+      "body": "Cela nous permet d'afficher les bons numéros d'urgence et de traduire votre résumé.",
+      "group": "Pays",
+      "pick": "Choisissez votre pays pour voir les numéros d'urgence locaux."
+    },
+    "emergency": {
+      "seeMore": "Voir plus d'infos", "seeLess": "Masquer les détails",
+      "title": "En cas d'urgence, appelez maintenant",
+      "callIf": "Appelez immédiatement si vous avez",
+      "others": "Autres numéros utiles ({country})",
+      "source": "Source : {source}"
+    },
+    "warningSigns": [
+      "Douleur ou oppression dans la poitrine",
+      "Grande difficulté à respirer",
+      "Visage qui s'affaisse, faiblesse d'un bras ou difficulté à parler",
+      "Saignement abondant qui ne s'arrête pas",
+      "Évanouissement ou absence de réaction",
+      "Gonflement du visage ou de la gorge après une piqûre, un aliment ou un médicament",
+      "Pensées de vous faire du mal"
+    ],
+    "start": {
+      "title": "Préparez votre consultation",
+      "body": "Je vais vous poser quelques questions courtes sur vos symptômes, puis préparer un résumé à montrer au médecin.",
+      "button": "Commencer",
+      "privacy": "Ceci n'est pas un diagnostic. Le résumé vous aide à expliquer vos symptômes à un médecin."
+    },
+    "consult": {
+      "question": "Question {n}",
+      "quick": "Réponses rapides",
+      "placeholder": "Saisissez votre réponse (ou choisissez-en une ci-dessus)",
+      "send": "Envoyer",
+      "skip": "Passer cette question",
+      "loading": "Préparation…"
+    },
+    "urgent": {
+      "generic": "Vos réponses peuvent indiquer une urgence. Appelez le <call>{number}</call> ou consultez un médecin immédiatement."
+    },
+    "errors": {
+      "generic": "Une erreur s'est produite. Veuillez réessayer.",
+      "network": "Pas de connexion. Vérifiez votre accès internet et réessayez.",
+      "timeout": "Cela prend trop de temps. Veuillez réessayer.",
+      "upstream_error": "Le service est indisponible pour le moment. Réessayez dans un instant.",
+      "not_configured": "Le service n'est pas encore configuré.",
+      "session_expired": "Votre session a expiré. Veuillez recommencer.",
+      "invalid": "Cette réponse n'a pas pu être traitée. Raccourcissez-la ou reformulez-la.",
+      "unexpected": "Erreur inattendue. Veuillez réessayer."
+    },
+    "summary": {
+      "forYou": "Dans votre langue",
+      "skipped": "Questions passées : {list}",
+      "title": "Votre résumé",
+      "introBilingual": "Montrez ceci à un médecin ou à un pharmacien. Il est rédigé en anglais et en {language}.",
+      "introSingle": "Montrez ceci à un médecin ou à un pharmacien.",
+      "print": "Imprimer ou enregistrer en PDF",
+      "copy": "Copier le texte",
+      "copied": "Copié",
+      "restart": "Recommencer",
+      "urgent": "Certaines de vos réponses peuvent nécessiter une prise en charge rapide. Si vous vous sentez plus mal ou si vous avez un doute, appelez le <call>{number}</call> tout de suite, sans attendre."
+    },
+    "disclaimerWith": "WellAbroad est une aide à la communication médicale, et non un service de diagnostic. En cas d'urgence, appelez le {number}."
+  },
+  "countries": {
+    "PK": {
+      "name": "Pakistan",
+      "primary": "Rescue 1122 · ambulance, incendie et secours",
+      "note": "Le Pakistan n'a pas de numéro d'urgence national unique, et le 1122 est géré par province : la couverture varie selon la région. Le 112 peut ne pas fonctionner de façon fiable. Les opérateurs parlent parfois peu l'anglais.",
+      "contacts": {
+        "edhi": {
+          "label": "Ambulance Edhi",
+          "note": "Géré par une fondation caritative, très répandu"
+        },
+        "police": {
+          "label": "Police"
+        },
+        "fire": {
+          "label": "Pompiers"
+        }
+      }
+    },
+    "US": {
+      "name": "États-Unis",
+      "primary": "Police, pompiers et ambulance",
+      "note": "Les urgences hospitalières doivent prendre en charge toute personne en situation d'urgence, et les factures peuvent être élevées. Renseignez-vous sur les coûts pour les soins non urgents.",
+      "contacts": {
+        "crisis": {
+          "label": "Ligne d'aide en cas de crise ou de suicide (Suicide & Crisis Lifeline)",
+          "note": "Appel ou SMS, 24 h/24, 7 j/7"
+        },
+        "poison": {
+          "label": "Centre antipoison (Poison Help)",
+          "note": "Gratuit et confidentiel"
+        }
+      }
+    },
+    "GB": {
+      "name": "Royaume-Uni",
+      "primary": "Police, pompiers, ambulance et garde côtière",
+      "note": "Le 999 est réservé aux urgences. Pour les problèmes urgents mais sans danger vital, utilisez le NHS 111 ou un centre de soins urgents.",
+      "contacts": {
+        "e112": {
+          "label": "Joint aussi les services d'urgence"
+        },
+        "nhs111": {
+          "label": "NHS 111 · urgences non vitales",
+          "note": "Angleterre, Écosse et pays de Galles"
+        },
+        "samaritans": {
+          "label": "Samaritans",
+          "note": "Écoute gratuite, 24 h/24, 7 j/7"
+        }
+      }
+    },
+    "DE": {
+      "name": "Allemagne",
+      "primary": "Ambulance et pompiers",
+      "note": "Le 112 est réservé aux situations mettant la vie en danger. Appelez le 116 117 pour un besoin médical urgent en dehors des heures d'ouverture des cabinets.",
+      "contacts": {
+        "onCall": {
+          "label": "Médecin de garde · urgences non vitales",
+          "note": "Réponse en allemand uniquement"
+        },
+        "police": {
+          "label": "Police"
+        },
+        "telefonseelsorge": {
+          "label": "Telefonseelsorge",
+          "note": "Écoute gratuite en situation de crise, en allemand"
+        }
+      }
+    },
+    "FR": {
+      "name": "France",
+      "primary": "Numéro d'urgence européen",
+      "note": "Le 112 fonctionne partout en France. Le 15 joint directement le SAMU pour les urgences médicales.",
+      "contacts": {
+        "samu": {
+          "label": "SAMU · urgences médicales"
+        },
+        "fire": {
+          "label": "Sapeurs-pompiers"
+        },
+        "police": {
+          "label": "Police"
+        },
+        "suicide": {
+          "label": "Numéro national de prévention du suicide",
+          "note": "Gratuit, 24 h/24, 7 j/7"
+        },
+        "sms": {
+          "label": "Urgences par SMS ou fax",
+          "note": "Pour les personnes sourdes ou malentendantes"
+        }
+      }
+    }
+  },
+  "documents": {
+    "banner": {
+      "title": "Comprenez l'essentiel.",
+      "subtitle": "Importez une ordonnance étrangère, un rapport d'analyses ou un document médical pour obtenir une traduction et une explication claire en langage simple."
+    },
+    "upload": {
+      "title": "Importez votre document",
+      "body": "Une photo ou un PDF d'une ordonnance, d'un rapport ou d'une note de consultation.",
+      "drag": "Glissez un fichier ici, ou choisissez-en un",
+      "choose": "Choisir un fichier",
+      "photo": "Prendre une photo",
+      "formats": "JPG, PNG, WebP ou PDF · jusqu'à {max} Mo",
+      "remove": "Retirer",
+      "previewAlt": "Aperçu de votre document",
+      "translateInto": "Traduire en",
+      "reading": "Lecture de votre document… cela peut prendre jusqu'à une minute.",
+      "cancel": "Annuler",
+      "submit": "Traduire le document",
+      "privacy": "Votre document est envoyé de manière sécurisée pour être lu et traduit, puis supprimé à la fin de votre session. N'importez que ce que vous êtes à l'aise de partager."
+    },
+    "result": {
+      "extracted": "Informations trouvées dans le document",
+      "unreadable": "Parties illisibles",
+      "chat": {
+        "title": "Posez une question sur ce document",
+        "hint": "Posez une question sur le document, par exemple le sens d'un terme ou comment prendre un médicament.",
+        "placeholder": "Saisissez votre question",
+        "send": "Envoyer",
+        "thinking": "Réflexion en cours…",
+        "urgent": "Cela peut être urgent. Contactez un médecin ou les urgences locales immédiatement."
+      },
+      "title": "Votre document, expliqué",
+      "original": "Langue d'origine : {language}",
+      "plain": "En langage simple",
+      "meds": "Médicaments et instructions",
+      "precautions": "Précautions",
+      "full": "Traduction complète",
+      "note": "Ceci est une aide à la traduction et à l'explication. Elle ne pose pas de diagnostic et ne remplace pas l'avis de votre médecin ou de votre pharmacien. Vérifiez les doses et les instructions auprès d'eux avant d'agir.",
+      "print": "Imprimer ou enregistrer en PDF",
+      "copy": "Copier le texte",
+      "copied": "Copié",
+      "another": "Traduire un autre document"
+    },
+    "errors": {
+      "network": "Pas de connexion. Vérifiez votre accès internet et réessayez.",
+  "session_expired": "Votre session a expiré. Veuillez réessayer.",
+  "invalid": "Cette demande n'a pas pu être traitée. Vérifiez-la et réessayez.",
+      "type": "Veuillez importer un fichier JPG, PNG, WebP ou PDF.",
+      "size": "Ce fichier dépasse {max} Mo. Essayez une photo ou un PDF plus léger.",
+      "generic": "Nous n'avons pas pu traiter ce document. Veuillez réessayer.",
+      "empty": "Nous n'avons trouvé aucun texte lisible dans ce document. Essayez une photo plus nette.",
+      "unexpected": "Une erreur est survenue. Veuillez réessayer.",
+      "not_configured": "Le service de traduction n'est pas configuré.",
+      "invalid_upload": "Envoi invalide.",
+      "no_file": "Aucun fichier n'a été envoyé.",
+      "unsupported_type": "Type de fichier non pris en charge.",
+      "too_large": "Ce fichier est trop volumineux.",
+      "upstream_error": "Le service de traduction n'a pas pu traiter ce document. Veuillez réessayer.",
+      "timeout": "Le service de traduction n'a pas répondu à temps. Veuillez réessayer."
+    }
+  }
+}

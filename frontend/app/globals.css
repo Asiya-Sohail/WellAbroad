@@ -128,3 +128,19 @@
     @apply font-sans;
   }
 }
+
+html[lang="ur"] * {
+  font-family: var(--font-urdu), var(--font-sans), sans-serif !important;
+}
+ 
+html[lang="ur"] h1,
+html[lang="ur"] h2,
+html[lang="ur"] h3,
+html[lang="ur"] h4 {
+  line-height: 1.6 !important;
+}
+html[lang="ur"] p,
+html[lang="ur"] li {
+  line-height: 1.9;
+}
+ 

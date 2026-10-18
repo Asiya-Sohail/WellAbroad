@@ -40,10 +40,10 @@ export function ServiceSection({
   copyright,
 }: ServiceSectionProps) {
   return (
-    <section className="px-4 py-6 md:px-14 md:pt-6 md:mb-24">
-      <div className="mx-auto max-w-6xl">
+    <section className="py-6 md:mb-30">
+      <div className="mx-auto max-w-[92%]">
         {/* banner */}
-        <div className="relative flex h-56 items-center justify-center overflow-hidden rounded-t-3xl px-6 text-center md:h-64">
+        <div className="relative flex items-center justify-center overflow-hidden rounded-t-4xl w-full text-center h-72 md:h-96">
           <Image
             src={bannerImage}
             alt=""
@@ -67,13 +67,13 @@ export function ServiceSection({
         {/* card */}
         <div className="rounded-b-3xl bg-white px-6 py-10 shadow-lg md:px-10 md:py-14">
           <h2
-            className={`${idiqlat.className} text-[30px] font-semibold leading-tight md:text-[40px]`}
+            className={`${idiqlat.className} text-[28px] font-semibold leading-tight`}
           >
             {title}
           </h2>
           <p className="mt-3 max-w-xl text-base">{description}</p>
 
-          <hr className="my-8 max-w-sm border-border" />
+          <hr className="my-8 max-w-lg border-border" />
 
           <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
             <ul className="space-y-2 text-xs md:text-sm">
@@ -102,7 +102,7 @@ export function ServiceSection({
 
         {/* footnote */}
         {(disclaimer || copyright) && (
-          <div className="mt-6 flex flex-col gap-2 text-xs italic md:flex-row md:justify-between">
+          <div className="mt-10 flex flex-col gap-2 text-xs italic md:flex-row md:justify-between">
             <p>{disclaimer}</p>
             <p>{copyright}</p>
           </div>

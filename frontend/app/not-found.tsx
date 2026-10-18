@@ -1,11 +1,14 @@
 import Link from "next/link";
+import { getTranslations } from "next-intl/server";
 import { Button } from "@/components/ui/button";
 import { idiqlat } from "@/lib/utils";
 
-export default function NotFound() {
+export default async function NotFound() {
+    const t = await getTranslations("notFound");
+    const cta = await getTranslations("cta");
+
     return (
         <main className="relative flex min-h-[70vh] items-center justify-center overflow-hidden px-6 py-24 text-center">
-
             <div className="mx-auto flex max-w-2xl flex-col items-center gap-5">
                 <p
                     className={`${idiqlat.className} text-[64px] font-semibold leading-none md:text-[96px]`}
@@ -15,12 +18,9 @@ export default function NotFound() {
                 <h1
                     className={`${idiqlat.className} text-[30px] font-semibold leading-tight md:text-[40px]`}
                 >
-                    We couldn&apos;t find that page.
+                    {t("title")}
                 </h1>
-                <p className="max-w-xl text-base md:text-lg">
-                    The link may be broken or the page may have moved. You can head
-                    back home or start with one of the options below.
-                </p>
+                <p className="max-w-xl text-base md:text-lg">{t("body")}</p>
 
                 <div className="flex w-full flex-col gap-3 md:w-auto md:flex-row">
                     <Button
@@ -28,7 +28,7 @@ export default function NotFound() {
                         nativeButton={false}
                         className="px-6 py-6 text-[15px] md:text-base"
                     >
-                        Back to homepage
+                        {t("home")}
                     </Button>
                     <Button
                         render={<Link href="/symptoms" />}
@@ -36,7 +36,7 @@ export default function NotFound() {
                         variant="outline"
                         className="px-6 py-6 text-[15px] md:text-base"
                     >
-                        Describe my symptoms
+                        {cta("describe")}
                     </Button>
                 </div>
             </div>

@@ -1,16 +1,10 @@
 import { Menu } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { getTranslations } from "next-intl/server";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "./ui/sheet";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 import { idiqlat } from "@/lib/utils";
-
-
-
-const navLinks = [
-  { label: "How it works", href: "/#how-it-works" },
-  { label: "Use cases", href: "/#use-cases" },
-  { label: "Privacy & safety", href: "/#privacy" },
-];
 
 export function Logo() {
   return (
@@ -21,43 +15,56 @@ export function Logo() {
   );
 }
 
-export function Navbar() {
+export async function Navbar() {
+  const t = await getTranslations("nav");
+
+  const navLinks = [
+    { label: t("howItWorks"), href: "/#how-it-works" },
+    { label: t("useCases"), href: "/#use-cases" },
+    { label: t("privacy"), href: "/#privacy" },
+  ];
+
   return (
     <header className="sticky top-0 z-50 bg-white/90 backdrop-blur">
-      <div className="mx-auto flex h-16 items-center justify-between md:px-14 px-3">
+      <div className="mx-auto flex h-16 items-center justify-between lg:px-14 px-6">
         <Logo />
 
-        {/* desktop */}
-        <nav className="hidden items-center gap-8 text-base md:flex">
-          {navLinks.map((l) => (
-            <Link key={l.href} href={l.href} className="hover:underline">
-              {l.label}
-            </Link>
-          ))}
-        </nav>
+        <div className="flex items-center gap-4 md:gap-8">
+          {/* desktop */}
+          <nav className="hidden items-center gap-8 text-base lg:flex">
+            {navLinks.map((l) => (
+              <Link key={l.href} href={l.href} className="hover:underline">
+                {l.label}
+              </Link>
+            ))}
+          <LanguageSwitcher />
+          </nav>
 
-        {/* mobile */}
-        <div className="md:hidden">
-          <Sheet>
-            <SheetTrigger
-              aria-label="Open menu"
-              className="inline-flex size-9 items-center justify-center rounded-md text-foreground transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-            >
-              <Menu className="size-5" />
-            </SheetTrigger>
 
-            <SheetContent side="right">
-              <SheetTitle className="sr-only">Menu</SheetTitle>
+          {/* mobile */}
+          <div className="lg:hidden">
+            <Sheet>
+              <SheetTrigger
+                aria-label={t("openMenu")}
+                className="inline-flex size-9 items-center justify-center rounded-md text-foreground transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              >
+                <Menu className="size-5" />
+              </SheetTrigger>
 
-              <nav className="mt-10 flex flex-col gap-6 px-6 text-lg">
-                {navLinks.map((l) => (
-                  <Link key={l.href} href={l.href}>
-                    {l.label}
-                  </Link>
-                ))}
-              </nav>
-            </SheetContent>
-          </Sheet>
+              <SheetContent side="right">
+                <SheetTitle className="sr-only">{t("menu")}</SheetTitle>
+
+                <nav className="mt-20 flex flex-col gap-6 px-6 text-lg">
+                  {navLinks.map((l) => (
+                    <Link key={l.href} href={l.href}>
+                      {l.label}
+                    </Link>
+                  ))}
+                  <LanguageSwitcher />
+                </nav>
+              </SheetContent>
+            </Sheet>
+          </div>
         </div>
       </div>
     </header>
