@@ -74,6 +74,57 @@ def test_consultation_skip_and_english_summary():
     assert summary.status_code == 200
     assert "Not provided" in summary.json()["english"]
 
+
+def test_preferred_language_is_required_to_be_supported_and_persisted():
+    app = make_app()
+    client = TestClient(app)
+    invalid = client.post(
+        "/session",
+        json={"ui_lang": "English", "country": "United Kingdom", "local_lang": "English", "preferred_lang": "Klingon"},
+    )
+    assert invalid.status_code == 422
+
+    response = client.post(
+        "/session",
+        json={"ui_lang": "English", "country": "United Kingdom", "local_lang": "English", "preferred_lang": "ur"},
+    )
+    assert response.status_code == 200
+    state = client.app.state.store.get(response.json()["session_id"])
+    assert state is not None
+    assert state.preferred_lang == "Urdu"
+
+
+def test_interviewer_receives_preferred_language_and_fallback_stays_localized():
+    class Interviewer(FakeEvolus):
+        async def chat(self, model, prompt, **kwargs):
+            self.prompts.append((prompt, kwargs))
+            return ("not json", None)
+
+    app = make_app(evolus_api_key="k", evolus_interviewer_model="app:interviewer")
+    app.state.evolus = Interviewer()
+    client = TestClient(app)
+    sid = client.post(
+        "/session",
+        json={"ui_lang": "English", "country": "United Kingdom", "local_lang": "English", "preferred_lang": "Urdu"},
+    ).json()["session_id"]
+
+    opening = client.post(f"/consult/{sid}/start").json()
+    assert "پریشان" in opening["question"]["question"]
+    next_question = client.post(f"/consult/{sid}/answer", json={"answer": "سر درد"}).json()
+    assert "یہ کب" in next_question["question"]["question"]
+    assert '"preferred_language": "Urdu"' in app.state.evolus.prompts[-1][0]
+
+
+def test_omitted_preferred_language_uses_existing_ui_language():
+    client = TestClient(make_app())
+    sid = client.post(
+        "/session",
+        json={"ui_lang": "English", "country": "United Kingdom", "local_lang": "English"},
+    ).json()["session_id"]
+    state = client.app.state.store.get(sid)
+    assert state is not None and state.preferred_lang == "English"
+
+
 def test_expired_store_is_removed():
     store=MemoryStore(1); sid,state=store.create("English","X","Y"); state.expires_at=0
     assert store.get(sid) is None

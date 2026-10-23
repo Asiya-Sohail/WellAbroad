@@ -149,6 +149,11 @@
       "group": "Land",
       "pick": "Wählen Sie Ihr Land, um die lokalen Notrufnummern zu sehen."
     },
+    "language": {
+      "title": "Welche Sprache sprechen Sie am liebsten?",
+      "body": "Die Fragen und Antwortmöglichkeiten werden in dieser Sprache angezeigt.",
+      "group": "Bevorzugte Interviewsprache"
+    },
     "emergency": {
       "seeMore": "Mehr Infos anzeigen", "seeLess": "Details ausblenden",
       "title": "Im Notfall jetzt anrufen",

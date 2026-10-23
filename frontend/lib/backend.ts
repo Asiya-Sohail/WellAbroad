@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 
-const BASE = process.env.WELLABROAD_API_URL;
+const BASE =
+  process.env.WELLABROAD_API_URL ||
+  (process.env.NODE_ENV === "development" ? "http://localhost:8000" : undefined);
 
 export async function backend(path: string, init: RequestInit = {}) {
   if (!BASE) return NextResponse.json({ code: "not_configured" }, { status: 500 });

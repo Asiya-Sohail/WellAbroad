@@ -9,6 +9,7 @@ class Session:
     ui_lang: str
     country: str
     local_lang: str
+    preferred_lang: str
     expires_at: float
     answers: list[dict[str, str]] = field(default_factory=list)
     skipped: list[str] = field(default_factory=list)
@@ -26,10 +27,10 @@ class MemoryStore:
         self.ttl_seconds = ttl_seconds
         self.sessions: dict[str, Session] = {}
 
-    def create(self, ui_lang: str, country: str, local_lang: str) -> tuple[str, Session]:
+    def create(self, ui_lang: str, country: str, local_lang: str, preferred_lang: str | None = None) -> tuple[str, Session]:
         self.purge()
         sid = str(uuid4())
-        session = Session(ui_lang, country, local_lang, time.time() + self.ttl_seconds)
+        session = Session(ui_lang, country, local_lang, preferred_lang or ui_lang, time.time() + self.ttl_seconds)
         self.sessions[sid] = session
         return sid, session
 

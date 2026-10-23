@@ -66,7 +66,7 @@ const post = (body?: unknown): RequestInit => ({
   ...(body === undefined ? {} : { headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) }),
 });
 
-export const createSession = (p: { ui_lang: string; country: string; local_lang: string }) =>
+export const createSession = (p: { ui_lang: string; country: string; local_lang: string; preferred_lang?: string }) =>
   call<{ session_id: string; expires_in_seconds: number }>("/api/session", post(p));
 
 export const startConsult = (sid: string) =>

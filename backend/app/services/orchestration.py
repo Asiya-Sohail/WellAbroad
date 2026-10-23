@@ -14,7 +14,7 @@ async def explain_document(client: EvolusClient, settings: Settings, extracted: 
     return await client.chat(settings.evolus_explainer_model, document_prompt(extracted, language, question, history, conversation_id), conversation_id=conversation_id, stream=True)
 
 def interviewer_prompt(state: dict[str, Any], language: str, max_questions: int) -> str:
-    return (f"Return only JSON with keys done, red_flag, target, question, quick_options. Ask one short relevant symptom question in {language}. Do not diagnose or recommend treatment. Never repeat or ask a skipped target. If enough information exists, set done true. " + json.dumps({**state, "max_questions": max_questions}, ensure_ascii=False))
+    return (f"Return only JSON with keys done, red_flag, target, question, quick_options. Ask one short relevant symptom question in {language}. Use {language} for the question and every quick option. Do not diagnose or recommend treatment. Never repeat or ask a skipped target. If enough information exists, set done true. " + json.dumps({**state, "preferred_language": language, "max_questions": max_questions}, ensure_ascii=False))
 
 def summarizer_prompt(answers: list[dict[str, str]], skipped: list[str]) -> str:
     return ("Create a concise factual English doctor summary. Include complaint, timing, severity, symptoms, medications, allergies, conditions, and explicitly mark missing information. " + safe_medical_prompt() + "\n" + json.dumps({"answers": answers, "skipped": skipped}, ensure_ascii=False))

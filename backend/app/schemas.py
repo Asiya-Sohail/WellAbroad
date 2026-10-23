@@ -2,10 +2,35 @@ from typing import Any
 from pydantic import BaseModel, Field, field_validator
 
 
+SUPPORTED_PREFERRED_LANGUAGES = {
+    "en": "English",
+    "english": "English",
+    "fr": "French",
+    "french": "French",
+    "de": "German",
+    "german": "German",
+    "es": "Spanish",
+    "spanish": "Spanish",
+    "ur": "Urdu",
+    "urdu": "Urdu",
+}
+
+
 class SessionCreate(BaseModel):
     ui_lang: str = Field(min_length=2, max_length=40)
     country: str = Field(min_length=2, max_length=80)
     local_lang: str = Field(min_length=2, max_length=40)
+    preferred_lang: str | None = Field(default=None, min_length=2, max_length=40)
+
+    @field_validator("preferred_lang")
+    @classmethod
+    def normalize_preferred_lang(cls, value: str | None) -> str | None:
+        if value is None:
+            return None
+        language = SUPPORTED_PREFERRED_LANGUAGES.get(value.strip().lower())
+        if language is None:
+            raise ValueError("Unsupported preferred language.")
+        return language
 
 
 class SessionCreated(BaseModel):

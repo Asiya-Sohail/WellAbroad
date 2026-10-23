@@ -149,6 +149,11 @@
       "group": "País",
       "pick": "Elige tu país para ver los números de emergencia locales."
     },
+    "language": {
+      "title": "¿Qué idioma te resulta más cómodo hablar?",
+      "body": "Las preguntas y opciones de respuesta aparecerán en este idioma.",
+      "group": "Idioma preferido para la entrevista"
+    },
     "emergency": {
       "seeMore": "Ver más información", "seeLess": "Ocultar detalles",
       "title": "En una emergencia, llama ahora",

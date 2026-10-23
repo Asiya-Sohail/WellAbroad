@@ -149,6 +149,11 @@
       "group": "Country",
       "pick": "Choose your country to see local emergency numbers."
     },
+    "language": {
+      "title": "Which language are you most comfortable speaking?",
+      "body": "Your interview questions and answer choices will use this language.",
+      "group": "Preferred interview language"
+    },
     "emergency": {
       "seeMore": "See more info", "seeLess": "Hide details",
       "title": "In an emergency, call now",

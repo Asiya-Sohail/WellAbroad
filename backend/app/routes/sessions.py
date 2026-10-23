@@ -7,7 +7,7 @@ router = APIRouter(tags=["sessions"])
 @router.post("/session", response_model=SessionCreated)
 def create_session(body: SessionCreate, request: Request):
     store = request.app.state.store
-    sid, _ = store.create(body.ui_lang, body.country, body.local_lang)
+    sid, _ = store.create(body.ui_lang, body.country, body.local_lang, body.preferred_lang)
     return SessionCreated(session_id=sid, expires_in_seconds=store.ttl_seconds)
 
 

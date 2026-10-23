@@ -330,6 +330,7 @@ export function SymptomsExperience() {
   const ui = useLocale() as Lang;
 
   const [countryId, setCountryId] = useState<CountryId | null>(null);
+  const [preferredLang, setPreferredLang] = useState<Lang | null>(null);
   const [phase, setPhase] = useState<Phase>("intro");
   const [sid, setSid] = useState<string | null>(null);
   const [question, setQuestion] = useState<Question | null>(null);
@@ -343,6 +344,7 @@ export function SymptomsExperience() {
 
   function reset() {
     setPhase("intro");
+    setPreferredLang(null);
     setSid(null);
     setQuestion(null);
     setCount(0);
@@ -392,6 +394,7 @@ export function SymptomsExperience() {
         ui_lang: LANG_EN[ui],
         country: COUNTRY_EN[country.id],
         local_lang: LANG_EN[country.lang],
+        preferred_lang: preferredLang ? LANG_EN[preferredLang] : undefined,
       });
       setSid(s.session_id);
       await handle(await startConsult(s.session_id), s.session_id);
@@ -451,9 +454,25 @@ export function SymptomsExperience() {
 
               {phase === "intro" && (
                 <div className="mx-auto max-w-2xl space-y-5 print:hidden">
+                  <div className="space-y-4">
+                    <h2 className={h2}>{t("language.title")}</h2>
+                    <p className="text-base">{t("language.body")}</p>
+                    <div role="group" aria-label={t("language.group")} className="grid gap-3 sm:grid-cols-2">
+                      {(Object.keys(LANG_NAME) as Lang[]).map((lang) => (
+                        <Tile
+                          key={lang}
+                          selected={preferredLang === lang}
+                          disabled={busy}
+                          onClick={() => setPreferredLang(lang)}
+                        >
+                          {LANG_NAME[lang]}
+                        </Tile>
+                      ))}
+                    </div>
+                  </div>
                   <h2 className={h2}>{t("start.title")}</h2>
                   <p className="text-base">{t("start.body")}</p>
-                  <Button onClick={start} disabled={busy} className="h-14 gap-2 px-8 text-[15px] md:text-base">
+                  <Button onClick={start} disabled={busy || !preferredLang} className="h-14 gap-2 px-8 text-[15px] md:text-base">
                     {busy ? <Loader2 className="size-4 animate-spin" aria-hidden /> : null}
                     {t("start.button")}
                     {!busy && <ArrowRight className="size-4 rtl:rotate-180" aria-hidden />}

@@ -149,6 +149,11 @@
       "group": "Pays",
       "pick": "Choisissez votre pays pour voir les numéros d'urgence locaux."
     },
+    "language": {
+      "title": "Dans quelle langue êtes-vous le plus à l'aise ?",
+      "body": "Les questions et les choix de réponse seront affichés dans cette langue.",
+      "group": "Langue d'entretien préférée"
+    },
     "emergency": {
       "seeMore": "Voir plus d'infos", "seeLess": "Masquer les détails",
       "title": "En cas d'urgence, appelez maintenant",

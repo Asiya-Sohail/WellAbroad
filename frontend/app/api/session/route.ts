@@ -11,14 +11,17 @@ export async function POST(req: Request) {
     return NextResponse.json({ code: "invalid" }, { status: 400 });
   }
 
-  const { ui_lang, country, local_lang } = body;
+  const { ui_lang, country, local_lang, preferred_lang } = body;
   if (![ui_lang, country, local_lang].every((v) => typeof v === "string" && v.length >= 2)) {
+    return NextResponse.json({ code: "invalid" }, { status: 400 });
+  }
+  if (preferred_lang !== undefined && (typeof preferred_lang !== "string" || preferred_lang.length < 2)) {
     return NextResponse.json({ code: "invalid" }, { status: 400 });
   }
 
   return backend("/session", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ ui_lang, country, local_lang }),
+    body: JSON.stringify({ ui_lang, country, local_lang, preferred_lang }),
   });
 }
