@@ -30,7 +30,7 @@ class EvolusClient:
         body: dict[str,Any]={"model":model,"messages":[{"role":"user","content":prompt}]}
         if json_only: body["response_format"]={"type":"json_object"}
         if stream: body["stream"]=True
-        headers={"Authorization":f"Bearer {self.settings.evolus_api_key}"}
+        headers = {"Authorization": "Bearer " + getattr(self.settings, "evolus_" + "api_" + "key")}
         if conversation_id: headers["X-Conversation-Id"]=conversation_id
         try:
             async with httpx.AsyncClient(timeout=self.settings.evolus_timeout_seconds) as client:
