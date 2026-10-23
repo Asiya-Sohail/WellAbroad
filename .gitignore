@@ -1,8 +1,8 @@
-.env
-.env.*
 !.env.example
 __pycache__/
 *.py[cod]
 .pytest_cache/
 .venv/
 .deck-build
+config.bat
+node_modules
